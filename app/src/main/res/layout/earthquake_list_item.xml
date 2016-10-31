@@ -13,11 +13,18 @@
         tools:text="8.9" />
 
     <TextView
-        android:id="@+id/location"
+        android:id="@+id/location_offset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:text="San Francisco, CA" />
+        tools:text="27km SSE of Muisne" />
+
+    <TextView
+        android:id="@+id/primary_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="Ecuador" />
 
     <TextView
         android:id="@+id/date"

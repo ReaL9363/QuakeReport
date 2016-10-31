@@ -19,6 +19,7 @@ import java.util.List;
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     private static final String LOG_TAG = EarthquakeAdapter.class.getSimpleName();
+    private static final String LOCATION_SEPARATOR = " of ";
 
     public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
         super(context, 0, earthquakes);
@@ -40,8 +41,25 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         TextView tvMagnitude = (TextView) listItemView.findViewById(R.id.magnitude);
         tvMagnitude.setText(currentEarthquake.getmMagnitude());
 
-        TextView tvLocation = (TextView) listItemView.findViewById(R.id.location);
-        tvLocation.setText(currentEarthquake.getmLocation());
+        /*TextView tvLocation = (TextView) listItemView.findViewById(R.id.location);
+        tvLocation.setText(currentEarthquake.getmLocation());*/
+        String originalLocation = currentEarthquake.getmLocation();
+        String primaryLocation;
+        String locationOffset;
+        if (originalLocation.contains(LOCATION_SEPARATOR)) {
+            String[] parts = originalLocation.split(LOCATION_SEPARATOR);
+            locationOffset = parts[0] + LOCATION_SEPARATOR;
+            primaryLocation = parts[1];
+        } else {
+            locationOffset = getContext().getString(R.string.offsetlocation);
+            primaryLocation = originalLocation;
+        }
+        TextView primaryLocationView = (TextView) listItemView.findViewById(R.id.primary_location);
+        primaryLocationView.setText(primaryLocation);
+
+        TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.location_offset);
+        locationOffsetView.setText(locationOffset);
+
 
         Date dateObject = new Date(currentEarthquake.getTimeInMilliseconds());
 
@@ -61,6 +79,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         return listItemView;
     }
+
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
      */
