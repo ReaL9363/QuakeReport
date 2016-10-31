@@ -18,32 +18,30 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     private static final String LOG_TAG = EarthquakeAdapter.class.getSimpleName();
 
-    public EarthquakeAdapter(Context context,List<Earthquake> earthquakes) {
+    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
         super(context, 0, earthquakes);
     }
-
 
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View listItemView=convertView;
-        if(listItemView==null)
-        {
+        View listItemView = convertView;
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.earthquake_item, parent, false);
+                    R.layout.earthquake_list_item, parent, false);
         }
 
         Earthquake currentEarthquake = getItem(position);
 
-        TextView tvMagnitude= (TextView) listItemView.findViewById(R.id.tvMagnitude);
-        tvMagnitude.setText( String.format( "%.2f",currentEarthquake.getmMagnitude() ) );
+        TextView tvMagnitude = (TextView) listItemView.findViewById(R.id.tvMagnitude);
+        tvMagnitude.setText(currentEarthquake.getmMagnitude());
 
-        TextView tvLocation= (TextView) listItemView.findViewById(R.id.tvLocation);
+        TextView tvLocation = (TextView) listItemView.findViewById(R.id.tvLocation);
         tvLocation.setText(currentEarthquake.getmLocation());
 
-        TextView tvDate= (TextView) listItemView.findViewById(R.id.tvDate);
+        TextView tvDate = (TextView) listItemView.findViewById(R.id.tvDate);
         tvDate.setText(currentEarthquake.getmDate());
 
         return listItemView;

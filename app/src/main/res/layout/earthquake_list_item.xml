@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
@@ -7,23 +8,23 @@
 
     <TextView
         android:id="@+id/tvMagnitude"
-        android:layout_width="0sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="4.7" />
+        tools:text="4.7" />
 
     <TextView
         android:id="@+id/tvLocation"
-        android:layout_width="0sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Dhaka" />
+        tools:text="Dhaka" />
 
     <TextView
         android:id="@+id/tvDate"
-        android:layout_width="0sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Oct31,2016" />
+        tools:text="Oct31,2016" />
 
 </LinearLayout>
