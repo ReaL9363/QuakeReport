@@ -62,7 +62,7 @@ public final class QueryUtils {
             for (int i = 0; i < earthquakeArray.length(); i++) {
                 JSONObject earthquakeObject = earthquakeArray.getJSONObject(i);
                 JSONObject propertiesObj = earthquakeObject.getJSONObject("properties");
-                String magnitude = propertiesObj.optString("mag");
+                double magnitude = propertiesObj.optDouble("mag");
                 String location = propertiesObj.optString("place").toString();
                 // Extract the value for the key called "time"
                 long time = propertiesObj.getLong("time");
