@@ -8,11 +8,13 @@ public class Earthquake {
     private String mMagnitude;
     private String mLocation;
     private String mDate;
+    /** Time of the earthquake */
+    private long mTimeInMilliseconds;
 
-    public Earthquake(String mMagnitude, String mLocation, String mDate) {
-        this.mMagnitude = mMagnitude;
-        this.mLocation = mLocation;
-        this.mDate = mDate;
+    public Earthquake(String magnitude, String location, long timeInMilliseconds) {
+        this.mMagnitude = magnitude;
+        this.mLocation = location;
+        this.mTimeInMilliseconds = timeInMilliseconds;
     }
 
     public String getmMagnitude() {
@@ -37,5 +39,11 @@ public class Earthquake {
 
     public void setmDate(String mDate) {
         this.mDate = mDate;
+    }
+    /**
+     * Returns the time of the earthquake.
+     */
+    public long getTimeInMilliseconds() {
+        return mTimeInMilliseconds;
     }
 }
